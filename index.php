@@ -5,24 +5,24 @@ header('Access-Control-Allow-Origin: *');
 
 require_once 'processE2u.php';
 require_once 'processGlosbe.php';
+require_once 'processJisho.php';
 
 // echo '<pre>';
 // print_r($_SERVER);
 // print_r($_GET);
 
 try {
-    $target = explode('/', $_SERVER['REQUEST_URI'])[2] ?? '';
-
-    $dic = explode('?', $target)[0];
-
+    $dic = $_GET['dic'] ?? '';
     $word = $_GET['word'] ?? '';
 
-    if($dic === 'e2u') {
+    if ($dic === 'e2u') {
         $word = str_replace(' ', '+', $word);
-        $url = 'https://e2u.org.ua/s?w=' . $word . '&dicts=all&highlight=on&filter_lines=on';
-    } elseif($dic === 'glosbe') {
+        $url = 'https://e2u.org.ua/s?w='.$word.'&dicts=all&highlight=on&filter_lines=on';
+    } else if ($dic === 'glosbe') {
         $word = str_replace(' ', '%20', $word);
-        $url = 'https://uk.glosbe.com/en/uk/' . $word;
+        $url = 'https://uk.glosbe.com/en/uk/'.$word;
+    } else if ($dic === 'jisho') {
+        $url = 'https://jisho.org/search/'.$word;
     } else {
         echo 'Wrong input!';
         exit();
@@ -34,8 +34,11 @@ try {
     $pageContent = curl_exec($ch);
     curl_close($ch);
 
+    // echo $pageContent;
+
     call_user_func_array('process'.$dic, [$pageContent, $word]);
 } catch(Error $e) {
-    echo $e;
+    // echo $e;
+    echo 'Error happend!';
     exit();
 }
