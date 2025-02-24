@@ -22,6 +22,7 @@ try {
         $word = str_replace(' ', '%20', $word);
         $url = 'https://uk.glosbe.com/en/uk/'.$word;
     } else if ($dic === 'jisho') {
+        $word = urlencode($word);
         $url = 'https://jisho.org/search/'.$word;
     } else {
         echo 'Wrong input!';
