@@ -6,6 +6,7 @@ header('Access-Control-Allow-Origin: *');
 require_once 'processE2u.php';
 require_once 'processGlosbe.php';
 require_once 'processJisho.php';
+require_once 'gtranslate.php';
 
 // echo '<pre>';
 // print_r($_SERVER);
@@ -24,6 +25,9 @@ try {
     } else if ($dic === 'jisho') {
         $word = urlencode($word);
         $url = 'https://jisho.org/search/'.$word;
+    } else if ($dic === 'gtranslate') {
+        gtranslate($word);
+        exit();
     } else {
         echo 'Wrong input!';
         exit();
