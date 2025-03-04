@@ -21,8 +21,8 @@ function gtranslate($expression) {
 
     $response = curl_exec($ch);
     curl_close($ch);
-    echo $response;
+    // echo $response;
 
     $result = json_decode($response, true);
-    print_r($result['data']['translations'][0]['translatedText']);
+    echo $result['data']['translations'][0]['translatedText'];
 }
