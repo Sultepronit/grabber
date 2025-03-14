@@ -6,7 +6,9 @@ header('Access-Control-Allow-Origin: *');
 require_once 'processE2u.php';
 require_once 'processGlosbe.php';
 require_once 'processJisho.php';
+require_once 'Keys.php';
 require_once 'gtranslate.php';
+require_once 'kanjiLookup.php';
 
 // echo '<pre>';
 // print_r($_SERVER);
@@ -27,6 +29,9 @@ try {
         $url = 'https://jisho.org/search/'.$word;
     } else if ($dic === 'gtranslate') {
         gtranslate($word);
+        exit();
+    } else if ($dic === 'kanji-lookup') {
+        kanjiLookup($word);
         exit();
     } else {
         echo 'Wrong input!';
