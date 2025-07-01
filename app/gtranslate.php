@@ -1,9 +1,6 @@
 <?php
 
-// require_once 'key.php';
-
 function gtranslate($expression) {
-    // $key = getKey();
     $key = Keys::$translate;
     $url = "https://translation.googleapis.com/language/translate/v2?key=$key";
 

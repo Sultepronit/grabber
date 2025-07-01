@@ -3,12 +3,13 @@ declare(strict_types=1);
 
 header('Access-Control-Allow-Origin: *');
 
-require_once 'processE2u.php';
-require_once 'processGlosbe.php';
-require_once 'processJisho.php';
-require_once 'Keys.php';
-require_once 'gtranslate.php';
-require_once 'kanjiLookup.php';
+require_once __DIR__ . '/Keys.php';
+
+require_once __DIR__ . '/app/processE2u.php';
+require_once __DIR__ . '/app/processGlosbe.php';
+require_once __DIR__ . '/app/processJisho.php';
+require_once __DIR__ . '/app/gtranslate.php';
+require_once __DIR__ . '/app/kanjiLookup.php';
 
 // echo '<pre>';
 // print_r($_SERVER);
@@ -17,6 +18,9 @@ require_once 'kanjiLookup.php';
 try {
     $dic = $_GET['dic'] ?? '';
     $word = $_GET['word'] ?? '';
+    $dic = 'e2u';
+    // $dic = 'glosbe';
+    $word = 'apple';
 
     if ($dic === 'e2u') {
         $word = str_replace(' ', '+', $word);
@@ -40,7 +44,18 @@ try {
 
     // $pageContent = file_get_contents($url); 
     $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/119.0.0.0 Safari/537.36',
+        CURLOPT_REFERER => 'https://e2u.org.ua/',
+        CURLOPT_HTTPHEADER => [
+            'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language: en-US,en;q=0.9',
+        ],
+    ]);
+
     $pageContent = curl_exec($ch);
     curl_close($ch);
 
