@@ -7,7 +7,7 @@ function kanjiLookup($kanji) {
     // $req = "generate a list of kanji (kanji only, comma separated) that contains same lements as $kanji and resemble it";
     // $req = "generate a list of kanji (kanji only, comma separated) that contain same/similar elements as $kanji and may resemble it";
     // $req = "generate a list of kanji (kanji only, comma separated) that contain same/similar elements as $kanji and may look similar";
-    $req = "generate a list of kanji (kanji only, no separator) that contains same/similar elements as $kanji and may look similar";
+    $req = "generate a list of kanji (kanji only, no separator) that contains same/similar elements as $kanji and/or looks similar";
 
     $data = [
         'contents' => [
