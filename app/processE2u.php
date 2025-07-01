@@ -1,12 +1,17 @@
 <?php
 declare(strict_types=1);
 
-function processE2u($pageContent, $word) {
+// function processE2u($pageContent, $word) {
+function useE2u($query) {
+    $query = str_replace(' ', '+', $query);
+    $url = 'https://e2u.org.ua/s?w='.$query.'&dicts=all&highlight=on&filter_lines=on';
+    $pageContent = useCurl($url, 'sly', 'https://e2u.org.ua/');
+
     libxml_use_internal_errors(true);
     $html = new DOMDocument();
     $html->loadHTML($pageContent);
 
-    function isArticleMain($article, $word) {
+    function isArticleMain($article, $query) {
         $header = $article->getElementsByTagName('b')[0]?->textContent;
         if(!$header) return false;
         
@@ -16,7 +21,7 @@ function processE2u($pageContent, $word) {
         $header = str_replace('|', '', $header);
         $header = str_replace('́', '', $header);
         
-        return strtolower($header) === strtolower($word);
+        return strtolower($header) === strtolower($query);
     }
 
     $articles = ['main' => [], 'other' => [], 'context' => []];
@@ -28,7 +33,7 @@ function processE2u($pageContent, $word) {
             continue;
         }
 
-        if(isArticleMain($tag, $word)) {
+        if(isArticleMain($tag, $query)) {
             $articles['main'][] = $tag;
         } else {
             $articles['other'][] = $tag;
