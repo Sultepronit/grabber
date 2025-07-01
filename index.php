@@ -6,6 +6,7 @@ header('Access-Control-Allow-Origin: *');
 require_once __DIR__ . '/Keys.php';
 
 require_once __DIR__ . '/app/services/curl.php';
+require_once __DIR__ . '/app/utils/isUkrainian.php';
 
 require_once __DIR__ . '/app/processE2u.php';
 require_once __DIR__ . '/app/processGlosbe.php';
@@ -20,10 +21,11 @@ require_once __DIR__ . '/app/kanjiLookup.php';
 try {
     $dic = $_GET['dic'] ?? '';
     $word = $_GET['word'] ?? '';
-    $dic = 'e2u';
-    // $dic = 'glosbe';
-    $dic = 'gtranslate';
-    $word = 'snake';
+    // $dic = 'e2u';
+    // // $dic = 'glosbe';
+    // $dic = 'gtranslate';
+    // $word = 'snake';
+    // $word = 'поміж нас';
 
     if ($dic === 'e2u') {
         // $word = str_replace(' ', '+', $word);

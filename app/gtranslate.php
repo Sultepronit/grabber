@@ -11,6 +11,11 @@ function gtranslate($expression) {
         'format' => 'text',
     ];
 
+    if (isUkrainian($expression)) {
+        $data['source'] = 'uk';
+        $data['target'] = 'en';
+    }
+
     // $ch = curl_init($url);
     // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     // curl_setopt($ch, CURLOPT_POST, true);
