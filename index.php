@@ -17,14 +17,14 @@ require_once __DIR__ . '/app/kanjiLookup.php';
 try {
     $dic = $_GET['dic'] ?? '';
     $word = $_GET['word'] ?? '';
-    $dic = 'e2u';
-    // $dic = 'glosbe';
-    // $dic = 'gtranslate';
-    $dic = 'jisho';
-    $dic = 'kanji-lookup';
-    $word = 'snake';
-    // $word = 'поміж нас';
-    $word = '湖';
+    // $dic = 'e2u';
+    // // $dic = 'glosbe';
+    // // $dic = 'gtranslate';
+    // $dic = 'jisho';
+    // $dic = 'kanji-lookup';
+    // $word = 'snake';
+    // // $word = 'поміж нас';
+    // $word = '湖';
 
     if ($dic === 'e2u') {
         useE2u($word);
