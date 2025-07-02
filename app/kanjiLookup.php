@@ -29,7 +29,7 @@ function kanjiLookup($kanji) {
 
     $response = curl_exec($ch);
     curl_close($ch);
-    echo $response;
+    // echo $response;
 
     preg_match_all('/\p{Han}+/u', $response, $matches);
     $allKanji = implode('', $matches[0]);
