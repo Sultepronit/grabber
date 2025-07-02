@@ -38,3 +38,14 @@ function kanjiLookup($kanji) {
     // echo json_encode($matches[0], JSON_UNESCAPED_UNICODE);
     echo implode('', $uniqueKanji);
 }
+
+// $kanji = '湖'; // той, що вже є
+// $response = '淇涸沽湘潮湖測'; // відповідь від Gemini
+
+// // Фільтруємо кожен символ, залишаючи лише ті, що не дорівнюють $kanji
+// $filtered = implode('', array_filter(
+//     preg_split('//u', $response, -1, PREG_SPLIT_NO_EMPTY),
+//     fn($char) => $char !== $kanji
+// ));
+
+// echo $filtered; // наприклад: 淇涸沽湘潮測

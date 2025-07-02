@@ -21,6 +21,7 @@ try {
     // $dic = 'glosbe';
     // $dic = 'gtranslate';
     $dic = 'jisho';
+    $dic = 'kanji-lookup';
     $word = 'snake';
     // $word = 'поміж нас';
     $word = '湖';
@@ -41,7 +42,7 @@ try {
         echo 'Wrong input!';
     }
 } catch(Error $e) {
-    echo $e;
+    // echo $e;
     echo 'Error happend!';
     exit();
 }
