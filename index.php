@@ -8,8 +8,8 @@ require_once __DIR__ . '/Keys.php';
 require_once __DIR__ . '/app/services/curl.php';
 require_once __DIR__ . '/app/utils/isUkrainian.php';
 
-require_once __DIR__ . '/app/processE2u.php';
-require_once __DIR__ . '/app/processGlosbe.php';
+require_once __DIR__ . '/app/useE2u.php';
+require_once __DIR__ . '/app/useGlosbe.php';
 require_once __DIR__ . '/app/processJisho.php';
 require_once __DIR__ . '/app/gtranslate.php';
 require_once __DIR__ . '/app/kanjiLookup.php';
@@ -21,10 +21,10 @@ require_once __DIR__ . '/app/kanjiLookup.php';
 try {
     $dic = $_GET['dic'] ?? '';
     $word = $_GET['word'] ?? '';
-    // $dic = 'e2u';
-    // // $dic = 'glosbe';
+    $dic = 'e2u';
+    $dic = 'glosbe';
     // $dic = 'gtranslate';
-    // $word = 'snake';
+    $word = 'snake';
     // $word = 'поміж нас';
 
     if ($dic === 'e2u') {
@@ -70,7 +70,7 @@ try {
 
     // call_user_func_array('process'.$dic, [$pageContent, $word]);
 } catch(Error $e) {
-    // echo $e;
+    echo $e;
     echo 'Error happend!';
     exit();
 }

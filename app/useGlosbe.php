@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 
-// function processGlosbe($pageContent) {
 function useGlosbe($query) {
     $query = str_replace(' ', '%20', $query);
     $url = 'https://uk.glosbe.com/en/uk/'.$query;

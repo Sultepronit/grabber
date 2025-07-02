@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 
-// function processE2u($pageContent, $word) {
 function useE2u($query) {
     $query = str_replace(' ', '+', $query);
     $url = 'https://e2u.org.ua/s?w='.$query.'&dicts=all&highlight=on&filter_lines=on';
