@@ -23,14 +23,19 @@ try {
     // // $dic = 'gtranslate';
     // $dic = 'jisho';
     // $dic = 'kanji-lookup';
+    // $dic = 'gem-en';
     // $word = 'snake';
-    // // $word = 'поміж нас';
-    // $word = '湖';
-    // $word = 'down the road';
+    // $word = 'поміж нас';
+    // // $word = '湖';
+    // // $word = 'down the road';
     // // $word = 'apple pie';
     // $word = 'in my heart of hearts';
-    // // $word = 'give me a break';
-    // $word = 'if I was you I'd wanna be me too';
+    // $word = 'give me a break';
+    // $word = 'if I was you I\'d wanna be me too';
+    // $word = 'вражаюча повня';
+    // $word = 'très bien';
+    // // $word = 'donning an ominous air';
+    // $word = 'офіс президента України';
 
     if ($dic === 'e2u') {
         useE2u($word);
