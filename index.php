@@ -9,6 +9,7 @@ require_once __DIR__ . '/app/services/curl.php';
 require_once __DIR__ . '/app/utils/isUkrainian.php';
 
 require_once __DIR__ . '/app/useE2u.php';
+require_once __DIR__ . '/app/geminiEn.php';
 require_once __DIR__ . '/app/useGlosbe.php';
 require_once __DIR__ . '/app/useJisho.php';
 require_once __DIR__ . '/app/gtranslate.php';
@@ -25,14 +26,19 @@ try {
     // $word = 'snake';
     // // $word = 'поміж нас';
     // $word = '湖';
+    // $word = 'down the road';
+    // // $word = 'apple pie';
+    // $word = 'in my heart of hearts';
+    // // $word = 'give me a break';
+    // $word = 'if I was you I'd wanna be me too';
 
     if ($dic === 'e2u') {
         useE2u($word);
+    } else if ($dic === 'gem-en') {
+        useGeminiEn($word);
     } else if ($dic === 'glosbe') {
         useGlosbe($word);
     } else if ($dic === 'jisho') {
-        // $word = urlencode($word);
-        // $url = 'https://jisho.org/search/'.$word;
         useJisho($word);
     } else if ($dic === 'gtranslate') {
         gtranslate($word);
