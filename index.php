@@ -34,8 +34,9 @@ try {
     // $word = 'if I was you I\'d wanna be me too';
     // $word = 'вражаюча повня';
     // $word = 'très bien';
-    // // $word = 'donning an ominous air';
+    // $word = 'donning an ominous air';
     // $word = 'офіс президента України';
+    // $word = 'even as experts go';
 
     if ($dic === 'e2u') {
         useE2u($word);
