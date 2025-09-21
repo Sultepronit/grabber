@@ -30,6 +30,7 @@ try {
     // // $word = 'down the road';
     // // $word = 'apple pie';
     // $word = 'in my heart of hearts';
+    // $word = 'in my heart of herts';
     // $word = 'give me a break';
     // $word = 'if I was you I\'d wanna be me too';
     // $word = 'вражаюча повня';
