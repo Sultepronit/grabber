@@ -10,6 +10,7 @@ require_once __DIR__ . '/app/utils/isUkrainian.php';
 
 require_once __DIR__ . '/app/useE2u.php';
 require_once __DIR__ . '/app/geminiEn.php';
+require_once __DIR__ . '/app/useSlovnyk.php';
 require_once __DIR__ . '/app/useGlosbe.php';
 require_once __DIR__ . '/app/useJisho.php';
 require_once __DIR__ . '/app/gtranslate.php';
@@ -24,6 +25,7 @@ try {
     // $dic = 'jisho';
     // $dic = 'kanji-lookup';
     // $dic = 'gem-en';
+    // $dic = 'ua-ua';
     // $word = 'snake';
     // $word = 'поміж нас';
     // // $word = '湖';
@@ -38,11 +40,14 @@ try {
     // $word = 'donning an ominous air';
     // $word = 'офіс президента України';
     // $word = 'even as experts go';
+    // $word = 'повня';
 
     if ($dic === 'e2u') {
         useE2u($word);
     } else if ($dic === 'gem-en') {
         useGeminiEn($word);
+    } else if ($dic === 'ua-ua') {
+        useSlovnyk($word);
     } else if ($dic === 'glosbe') {
         useGlosbe($word);
     } else if ($dic === 'jisho') {
