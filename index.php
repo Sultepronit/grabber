@@ -6,6 +6,7 @@ header('Access-Control-Allow-Origin: *');
 require_once __DIR__ . '/Keys.php';
 
 require_once __DIR__ . '/app/services/curl.php';
+require_once __DIR__ . '/app/services/useGemini.php';
 require_once __DIR__ . '/app/utils/isUkrainian.php';
 
 require_once __DIR__ . '/app/useE2u.php';
@@ -24,15 +25,16 @@ try {
     // // $dic = 'gtranslate';
     // $dic = 'jisho';
     // $dic = 'kanji-lookup';
-    // $dic = 'gem-en';
+    $dic = 'gem-en';
     // $dic = 'ua-ua';
     // $word = 'snake';
     // $word = 'поміж нас';
-    // // $word = '湖';
-    // // $word = 'down the road';
+    // $word = '湖';
+    // $word = '格';
+    // $word = 'down the road';
     // // $word = 'apple pie';
     // $word = 'in my heart of hearts';
-    // $word = 'in my heart of herts';
+    $word = 'in my heart of herts';
     // $word = 'give me a break';
     // $word = 'if I was you I\'d wanna be me too';
     // $word = 'вражаюча повня';
@@ -41,6 +43,10 @@ try {
     // $word = 'офіс президента України';
     // $word = 'even as experts go';
     // $word = 'повня';
+    // $word = "hard-fast";
+    // $word = "execute by degrees";
+    // $word = "go belly up";
+    // $word = "without knowing my left from my right";
 
     if ($dic === 'e2u') {
         useE2u($word);

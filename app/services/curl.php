@@ -47,7 +47,7 @@ function useCurl(
     $ch = curl_init($url);
     curl_setopt_array($ch, $options);
     $response = curl_exec($ch);
-    curl_close($ch);
+    // curl_close($ch);
 
     return $response;
 }
