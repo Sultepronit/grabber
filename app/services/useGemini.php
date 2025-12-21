@@ -1,16 +1,19 @@
 <?php
 declare(strict_types=1);
 
-function useGemini($req): string {
+function useGemini($req, $smart = false): string {
     $key = Keys::$gemini;
 
     $models = [
         'gemini-flash-latest',
-        'gemini-2.5-flash-lite',
         'gemini-3-flash-preview',
+        'gemini-2.5-flash-lite',
         'gemini-2.5-flash',
     ];
-    $model = $models[rand(0, 1)];
+    $max = $smart ? 1 : 2;
+    $rn = rand(0, 2);
+    // echo "rn: $rn";
+    $model = $models[$rn];
     
     $url = "https://generativelanguage.googleapis.com/v1beta/models/$model:generateContent?key=$key";
 
