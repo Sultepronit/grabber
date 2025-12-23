@@ -8,7 +8,7 @@ function kanjiLookup($kanji) {
     $req = "generate a list of kanji (kanji only, no separator) that contains same/similar elements as $kanji and/or looks similar";
     $req = "$kanji should somehow resemble some kanji. Generate suggestions of kanji that: A) contains same elements; B) contains similar elements; C) simply looks similar. Just answer, no additional text.";
     $req = "$kanji should somehow resemble some kanji. Generate suggestions of kanji that: A) contains same or similar elements; B) simply looks similar. Just answer, no additional text.";
-    $req = "$kanji should somehow hint at some japanese kanji. Generate suggestions of kanji that: A) contains same or similar element(s); B) is result of adding/removing some element(s) to/from the input; C) looks similar. Just answer, no additional text.";
+    $req = "$kanji should somehow hint at some japanese kanji. Generate suggestions of kanji that: A) contains same or similar element(s); B) is result of adding/removing/replacing some element(s) to/from the input; C) looks similar. Just answer, no additional text.";
 
     $response = useGemini($req, true);
     preg_match_all('/\p{Han}+/u', $response, $matches);

@@ -38,6 +38,7 @@ try {
     // $word = '心門文'; // 憫
     // $word = '周'; // 彫
     // $word = '論';
+    // $word = '殴';
     // $word = 'down the road';
     // // $word = 'apple pie';
     // $word = 'in my heart of hearts';
